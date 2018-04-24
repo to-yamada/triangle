@@ -12,12 +12,12 @@ class Triangle
 
   def equilateral_triangle?
     # 三角形の条件を満たし、かつ全ての辺が等しい
-    triangle? && [@a, @b, @c].uniq.size == 1
+    triangle? && [@a, @b, @c].combination(2).map{|a, b| a == b}.all?
   end
 
   def isosceles_triangle?
     # 三角形の条件を満たし、かついずれかの2辺が等しい
-    triangle? && [@a, @b, @c].uniq.size <= 2
+    triangle? && [@a, @b, @c].combination(2).map{|a, b| a == b}.any?
   end
 
   def triangle?
