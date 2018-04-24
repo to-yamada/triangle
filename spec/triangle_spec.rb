@@ -24,6 +24,10 @@ describe Triangle do
       expect(Triangle.new(1, 2, 2)).to be_isosceles_triangle
     end
 
+    it '正三角形であれば二等辺三角形でもある' do
+      expect(Triangle.new(2, 2, 2)).to be_isosceles_triangle
+    end
+
     it 'いずれかの2辺は等しいが、三角形の条件を満たさない場合は二等辺三角形ではない' do
       expect(Triangle.new(1, 1, 2)).not_to be_isosceles_triangle
     end

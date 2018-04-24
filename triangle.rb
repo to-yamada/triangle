@@ -12,13 +12,12 @@ class Triangle
 
   def equilateral_triangle?
     # 三角形の条件を満たし、かつ全ての辺が等しい
-    triangle? && @a == @b && @b == @c
+    triangle? && [@a, @b, @c].uniq.size == 1
   end
 
   def isosceles_triangle?
     # 三角形の条件を満たし、かついずれかの2辺が等しい
-    # @a <= @b <= @c であるため、@a == @c はチェック不要
-    triangle? && (@a == @b || @b == @c)
+    triangle? && [@a, @b, @c].uniq.size <= 2
   end
 
   def triangle?
